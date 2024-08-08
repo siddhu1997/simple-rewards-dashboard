@@ -76,3 +76,13 @@ export function generateRandomData() {
 
   return data;
 }
+
+export const fetchMockData = () => {
+  const start = Date.now();
+  while (Date.now() - start < 300) {
+    continue;
+  }
+  return new Promise((resolve) => {
+    resolve(generateRandomData());
+  });
+};

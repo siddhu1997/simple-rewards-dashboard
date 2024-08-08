@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Table from "../Table";
 import Shimmer from "../Shimmer";
-import { calculateRewards, fetchMockData } from "../../utils";
+import { calculateRewards } from "../../utils";
+import { fetchMockData } from "../../utils/data";
 
 const userMonthlyRewardsFormatter = (data) => {
   return data.map(
