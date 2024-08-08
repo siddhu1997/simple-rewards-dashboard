@@ -6,56 +6,48 @@ import Transactions from "../RewardTables/Transactions";
 const Index = () => {
   const [activeTab, setActiveTab] = useState(0);
 
+  const handleTabClick = (tabIndex) => {
+    setActiveTab(tabIndex);
+  };
+
   return (
-    <div className="w-full">
+    <div className="w-full my-10">
       <div className="flex border-b border-gray-200">
         <button
-          className={`flex-1 py-2 text-center ${
+          className={`flex-1 text-lg font-bold py-2 text-center ${
             activeTab === 0
-              ? "border-b-2 border-blue-500 text-blue-500"
+              ? "border-b-2 border-black-500 text-black-500"
               : "text-gray-500"
           }`}
-          onClick={() => setActiveTab(0)}
+          onClick={() => handleTabClick(0)}
         >
           User Monthly Rewards
         </button>
         <button
-          className={`flex-1 py-2 text-center ${
+          className={`flex-1 py-2 text-lg font-bold text-center ${
             activeTab === 1
               ? "border-b-2 border-black-500 text-black-500"
               : "text-gray-500"
           }`}
-          onClick={() => setActiveTab(1)}
+          onClick={() => handleTabClick(1)}
         >
           Total Rewards
         </button>
         <button
-          className={`flex-1 py-2 text-center ${
+          className={`flex-1 py-2 text-lg font-bold text-center ${
             activeTab === 2
-              ? "border-b-2 border-black-500 text-blue-500"
+              ? "border-b-2 border-black-500 text-black-500"
               : "text-gray-500"
           }`}
-          onClick={() => setActiveTab(2)}
+          onClick={() => handleTabClick(2)}
         >
           Transactions
         </button>
       </div>
       <div className="p-4">
-        {activeTab === 0 && (
-          <div>
-            <UserMonthlyRewards />
-          </div>
-        )}
-        {activeTab === 1 && (
-          <div>
-            <TotalRewards />
-          </div>
-        )}
-        {activeTab === 2 && (
-          <div>
-            <Transactions />
-          </div>
-        )}
+        {activeTab === 0 && <UserMonthlyRewards />}
+        {activeTab === 1 && <TotalRewards />}
+        {activeTab === 2 && <Transactions />}
       </div>
     </div>
   );

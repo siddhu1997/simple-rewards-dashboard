@@ -1,3 +1,5 @@
+import { generateRandomData } from "./data";
+
 export const calculateRewards = (price) => {
   const amount = Math.ceil(price);
   let rewards = 0;
@@ -10,4 +12,14 @@ export const calculateRewards = (price) => {
   }
 
   return rewards.toFixed(2);
+};
+
+export const fetchMockData = () => {
+  const start = Date.now();
+  while (Date.now() - start < 300) {
+    continue;
+  }
+  return new Promise((resolve) => {
+    resolve(generateRandomData());
+  });
 };

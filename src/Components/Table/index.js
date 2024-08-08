@@ -26,7 +26,7 @@ const Index = ({ columns, data }) => {
   };
 
   return (
-    <div className="w-1/2 m-auto p-10">
+    <div className="w-full m-auto p-10">
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white">
           <thead>

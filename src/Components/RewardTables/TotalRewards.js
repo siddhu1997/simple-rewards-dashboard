@@ -1,6 +1,8 @@
+import { useState, useEffect } from "react";
 import Table from "../Table";
-import { generateRandomData } from "../../utils/data";
+import Shimmer from "../Shimmer";
 import { calculateRewards } from "../../utils";
+import { fetchMockData } from "../../utils";
 
 const userMonthlyRewardsFormatter = (data) => {
   return data.map(({ name, price }) => {
@@ -12,10 +14,30 @@ const userMonthlyRewardsFormatter = (data) => {
 };
 
 const Index = () => {
-  const columns = ["name", "rewards"];
-  const data = userMonthlyRewardsFormatter(generateRandomData());
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  return <Table columns={columns} data={data} />;
+  // Improvement: Can convert to custom hook if API endpoint is same.
+  useEffect(() => {
+    const getData = async () => {
+      const apiData = await fetchMockData();
+      setData(apiData);
+    };
+    getData();
+    // This batching is intentional to show Shimmer UI
+    setIsLoading((_v) => {
+      getData();
+      return false;
+    });
+  }, []);
+
+  if (isLoading) {
+    return <Shimmer />;
+  }
+  const columns = ["name", "rewards"];
+  const formattedData = userMonthlyRewardsFormatter(data);
+
+  return <Table columns={columns} data={formattedData} />;
 };
 
 export default Index;
