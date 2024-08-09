@@ -4,7 +4,7 @@ import Shimmer from "../Shimmer";
 import { calculateRewards } from "../../utils";
 import { fetchMockData } from "../../utils/data";
 
-const userMonthlyRewardsFormatter = (data) => {
+const transactionsFormatter = (data = []) => {
   return data.map(
     ({ transactionId, name, price, productPurchased, purchaseDate }) => {
       return {
@@ -26,10 +26,9 @@ const Index = () => {
   // Improvement: Can convert to custom hook if API endpoint is same.
   useEffect(() => {
     const getData = async () => {
-      const apiData = await fetchMockData();
+      const apiData = await fetchMockData({});
       setData(apiData);
     };
-    getData();
     // This batching is intentional to show Shimmer UI
     setIsLoading((_v) => {
       getData();
@@ -37,20 +36,20 @@ const Index = () => {
     });
   }, []);
 
-  if (isLoading) {
-    return <Shimmer />;
-  }
-
   const columns = [
-    "transactionId",
-    "name",
-    "purchaseDate",
-    "productPurchased",
-    "price",
-    "rewards",
+    { name: "Transaction ID", value: "transactionId" },
+    { name: "Customer Name", value: "name" },
+    { name: "Purchase Date", value: "purchaseDate" },
+    { name: "Product", value: "productPurchased" },
+    { name: "Price", value: "price" },
+    { name: "Rewards", value: "rewards" },
   ];
 
-  const formmatedData = userMonthlyRewardsFormatter(data);
+  if (isLoading) {
+    return <Shimmer columns={columns.length} />;
+  }
+
+  const formmatedData = transactionsFormatter(data);
   return <Table columns={columns} data={formmatedData} />;
 };
 

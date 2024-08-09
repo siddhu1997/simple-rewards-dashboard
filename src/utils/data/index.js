@@ -77,12 +77,21 @@ export function generateRandomData() {
   return data;
 }
 
-export const fetchMockData = () => {
+export const fetchMockData = ({ year }) => {
   const start = Date.now();
   while (Date.now() - start < 300) {
     continue;
   }
   return new Promise((resolve) => {
-    resolve(generateRandomData());
+    let data = generateRandomData();
+    if (year === "all") {
+      data = data.sort((a, b) => a.timestamp - b.timestamp);
+    } else if (year) {
+      data = data.filter(({ timestamp }) => {
+        const currYear = new Date(timestamp).getFullYear().toString();
+        return currYear === year;
+      });
+    }
+    resolve(data);
   });
 };

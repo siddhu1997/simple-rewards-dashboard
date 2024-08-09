@@ -36,7 +36,7 @@ const Index = ({ columns, data }) => {
                   key={index}
                   className="py-2 px-4 bg-gray-200 border-b border-gray-300 text-left capitalize"
                 >
-                  {column}
+                  {column.name}
                 </th>
               ))}
             </tr>
@@ -49,7 +49,7 @@ const Index = ({ columns, data }) => {
                     key={colIndex}
                     className="py-2 px-4 border-b border-gray-300"
                   >
-                    {row[column]}
+                    {row[column.value]}
                   </td>
                 ))}
               </tr>

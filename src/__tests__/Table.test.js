@@ -5,12 +5,12 @@ import "@testing-library/jest-dom";
 
 describe("Table Component", () => {
   const columns = [
-    "transactionId",
-    "name",
-    "purchaseDate",
-    "productPurchased",
-    "price",
-    "rewards",
+    { name: "Transaction ID", value: "transactionId" },
+    { name: "Customer Name", value: "name" },
+    { name: "Purchase Date", value: "purchaseDate" },
+    { name: "Product", value: "productPurchased" },
+    { name: "Price", value: "price" },
+    { name: "Rewards", value: "rewards" },
   ];
   const data = [
     {
@@ -34,7 +34,7 @@ describe("Table Component", () => {
   test("renders table headers correctly", () => {
     render(<Table columns={columns} data={data} />);
     columns.forEach((column) => {
-      expect(screen.getByText(column)).toBeInTheDocument();
+      expect(screen.getByText(column.name)).toBeInTheDocument();
     });
   });
 
