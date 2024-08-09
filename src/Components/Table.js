@@ -1,15 +1,17 @@
 import { useState } from "react";
+import { CONSTANTS } from "../utils/Config";
+
+const { ROWS_PER_PAGE } = CONSTANTS;
 
 const Index = ({ columns, data }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 5;
 
   // Calculate total pages
-  const totalPages = Math.ceil(data.length / rowsPerPage);
+  const totalPages = Math.ceil(data.length / ROWS_PER_PAGE);
 
   // Calculate the rows to display
-  const indexOfLastRow = currentPage * rowsPerPage;
-  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  const indexOfLastRow = currentPage * ROWS_PER_PAGE;
+  const indexOfFirstRow = indexOfLastRow - ROWS_PER_PAGE;
   const currentRows = data.slice(indexOfFirstRow, indexOfLastRow);
 
   // Handlers for pagination
@@ -57,7 +59,8 @@ const Index = ({ columns, data }) => {
           </tbody>
         </table>
       </div>
-      {data.length > rowsPerPage && (
+      {/* Show pagination buttons if no of rows exceeds ROWS_PER_PAGE */}
+      {data.length > ROWS_PER_PAGE && (
         <div className="flex justify-between items-center p-4">
           <button
             className="px-4 py-2 bg-gray-200 text-gray-600 rounded disabled:opacity-50"

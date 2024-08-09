@@ -1,9 +1,38 @@
 import { useState } from "react";
-import UserMonthlyRewards from "./RewardTables/UserMonthlyRewards";
-import TotalRewards from "./RewardTables/TotalRewards";
-import Transactions from "./RewardTables/Transactions";
+import { CONSTANTS } from "../utils/Config";
+import getRewardTable from "./HOC/RewardTable";
+import UserMonthlyRewards from "./UserMonthlyRewards";
+import Table from "../Components/Table";
+import {
+  getUserMonthlyRewardsAPI,
+  getTransactionsAPI,
+  getTotalRewardsAPI,
+} from "../Services";
+import {
+  userMonthlyRewardsFormatter,
+  transactionsFormatter,
+  totalRewardsFormatter,
+} from "../utils/Helpers";
 
-const Index = () => {
+const WrappedUserMonthlyRewards = getRewardTable(UserMonthlyRewards, {
+  columns: CONSTANTS.USER_MONTHLY_REWARDS_COLUMNS,
+  fetchData: getUserMonthlyRewardsAPI,
+  serializer: userMonthlyRewardsFormatter,
+});
+
+const WrappedTransactions = getRewardTable(Table, {
+  columns: CONSTANTS.TRANSACTIONS_COLUMNS,
+  fetchData: getTransactionsAPI,
+  serializer: transactionsFormatter,
+});
+
+const WrappedTotalRewards = getRewardTable(Table, {
+  columns: CONSTANTS.TOTAL_REWARDS_COLUMNS,
+  fetchData: getTotalRewardsAPI,
+  serializer: totalRewardsFormatter,
+});
+
+const RewardTabs = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (tabIndex) => {
@@ -45,12 +74,12 @@ const Index = () => {
         </button>
       </div>
       <div className="p-4">
-        {activeTab === 0 && <UserMonthlyRewards />}
-        {activeTab === 1 && <TotalRewards />}
-        {activeTab === 2 && <Transactions />}
+        {activeTab === 0 && <WrappedUserMonthlyRewards />}
+        {activeTab === 1 && <WrappedTotalRewards />}
+        {activeTab === 2 && <WrappedTransactions />}
       </div>
     </div>
   );
 };
 
-export default Index;
+export default RewardTabs;
