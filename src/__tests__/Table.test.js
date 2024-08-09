@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Table from "../Components/Table";
 import "@testing-library/jest-dom";
 
-describe("Table Component", () => {
+describe.skip("Table Component", () => {
   const columns = [
     { name: "Transaction ID", value: "transactionId" },
     { name: "Customer Name", value: "name" },

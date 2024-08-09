@@ -1,7 +1,7 @@
 import { useState } from "react";
-import UserMonthlyRewards from "../RewardTables/UserMonthlyRewards";
-import TotalRewards from "../RewardTables/TotalRewards";
-import Transactions from "../RewardTables/Transactions";
+import UserMonthlyRewards from "./RewardTables/UserMonthlyRewards";
+import TotalRewards from "./RewardTables/TotalRewards";
+import Transactions from "./RewardTables/Transactions";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState(0);

@@ -57,25 +57,27 @@ const Index = ({ columns, data }) => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-between items-center p-4">
-        <button
-          className="px-4 py-2 bg-gray-200 text-gray-600 rounded disabled:opacity-50"
-          onClick={handlePreviousPage}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
-        <button
-          className="px-4 py-2 bg-gray-200 text-gray-600 rounded disabled:opacity-50"
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </button>
-      </div>
+      {data.length > rowsPerPage && (
+        <div className="flex justify-between items-center p-4">
+          <button
+            className="px-4 py-2 bg-gray-200 text-gray-600 rounded disabled:opacity-50"
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            className="px-4 py-2 bg-gray-200 text-gray-600 rounded disabled:opacity-50"
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 };

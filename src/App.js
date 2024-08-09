@@ -1,11 +1,9 @@
-import Header from "./Components/Header";
-import RewardsTabs from "./Components/RewardsTabs";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <RewardsTabs />
+      <Dashboard />
     </div>
   );
 }

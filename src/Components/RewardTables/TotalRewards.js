@@ -1,27 +1,17 @@
 import { useState, useEffect } from "react";
 import Table from "../Table";
 import Shimmer from "../Shimmer";
-import { calculateRewards } from "../../utils";
-import { fetchMockData } from "../../utils/data";
-
-const totalRewardsFormatter = (data = []) => {
-  return data.map(({ name, price }) => {
-    return {
-      name,
-      rewards: calculateRewards(price),
-    };
-  });
-};
+import { totalRewardsFormatter } from "../../utils/Helpers";
+import getTotalRewardsAPI from "../../Services/GetTotalRewardsAPI";
 
 const Index = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Improvement: Can convert to custom hook if API endpoint is same.
   useEffect(() => {
     const getData = async () => {
-      const apiData = await fetchMockData({});
-      setData(apiData);
+      const apiData = await getTotalRewardsAPI();
+      setData(totalRewardsFormatter(apiData));
     };
     // This batching is intentional to show Shimmer UI
     setIsLoading((_v) => {
@@ -31,6 +21,7 @@ const Index = () => {
   }, []);
 
   const columns = [
+    { name: "Customer ID", value: "customerId" },
     { name: "Customer Name", value: "name" },
     { name: "Rewards", value: "rewards" },
   ];
@@ -39,9 +30,11 @@ const Index = () => {
     return <Shimmer columns={columns.length} />;
   }
 
-  const formattedData = totalRewardsFormatter(data);
+  if (!isLoading && !data?.length) {
+    return <h1>No data available!</h1>;
+  }
 
-  return <Table columns={columns} data={formattedData} />;
+  return <Table columns={columns} data={data} />;
 };
 
 export default Index;

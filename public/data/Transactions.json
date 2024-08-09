@@ -1,0 +1,98 @@
+[
+  {
+    "transactionId": "t_1234",
+    "customerId": "1000",
+    "name": "John Doe",
+    "timestamp": "2024-07-01",
+    "price": 44,
+    "productPurchased": "Food Vocuher - Elite"
+  },
+  {
+    "transactionId": "t_1235",
+    "customerId": "1001",
+    "name": "Jane Smith",
+    "timestamp": "2024-07-02",
+    "price": 51,
+    "productPurchased": "Amazon Voucher"
+  },
+  {
+    "transactionId": "t_1236",
+    "customerId": "1002",
+    "name": "Emma Watson",
+    "timestamp": "2024-07-03",
+    "price": 100,
+    "productPurchased": "Amazon Voucher"
+  },
+  {
+    "transactionId": "t_1237",
+    "customerId": "1003",
+    "name": "Alice Johnson",
+    "timestamp": "2024-07-04",
+    "price": 152,
+    "productPurchased": "Uber Voucher"
+  },
+  {
+    "transactionId": "t_1238",
+    "customerId": "1000",
+    "name": "John Doe",
+    "timestamp": "2024-06-01",
+    "price": 44,
+    "productPurchased": "Food Vocuher - Elite"
+  },
+  {
+    "transactionId": "t_1239",
+    "customerId": "1001",
+    "name": "Jane Smith",
+    "timestamp": "2024-06-02",
+    "price": 51,
+    "productPurchased": "Flipkart Voucher"
+  },
+  {
+    "transactionId": "t_1240",
+    "customerId": "1002",
+    "name": "Emma Watson",
+    "timestamp": "2024-06-03",
+    "price": 100,
+    "productPurchased": "Food Vocuher - Pro"
+  },
+  {
+    "transactionId": "t_1241",
+    "customerId": "1003",
+    "name": "Alice Johnson",
+    "timestamp": "2024-06-04",
+    "price": 152,
+    "productPurchased": "JBL Voucher"
+  },
+  {
+    "transactionId": "t_1242",
+    "customerId": "1000",
+    "name": "John Doe",
+    "timestamp": "2024-05-01",
+    "price": 44,
+    "productPurchased": "Food Vocuher - Mad Max"
+  },
+  {
+    "transactionId": "t_1243",
+    "customerId": "1001",
+    "name": "Jane Smith",
+    "timestamp": "2024-05-02",
+    "price": 51,
+    "productPurchased": "BookMyShow Voucher"
+  },
+  {
+    "transactionId": "t_1244",
+    "customerId": "1002",
+    "name": "Emma Watson",
+    "timestamp": "2024-05-03",
+    "price": 100,
+    "productPurchased": "Uber Voucher"
+  },
+  {
+    "transactionId": "t_1245",
+    "customerId": "1003",
+    "name": "Alice Johnson",
+    "timestamp": "2024-05-04",
+    "price": 152,
+    "productPurchased": "Food Vocuher - Elite"
+  }
+]
