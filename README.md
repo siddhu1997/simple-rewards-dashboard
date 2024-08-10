@@ -11,7 +11,7 @@ A customer receives 2 points for every dollar spent over $100 in each transactio
 
 ### UI
 Note:
-1. No external CSS other tha Tailwind is used
+1. No external CSS other than Tailwind is used
 2. Table shows 5 rows per page and pagination is enabled.
 
 #### User Monthly Rewards Table
@@ -25,6 +25,9 @@ Note:
 
 #### Transactions table
 !["Transactions Table](public/images/TransactionsTable.png)
+
+### Tests Status
+!["Tests Status](public/images/Tests.png)
 
 ## Available Scripts
 
