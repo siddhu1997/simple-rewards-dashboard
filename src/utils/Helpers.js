@@ -54,7 +54,7 @@ export const userMonthlyRewardsFormatter = (data = []) => {
  * @param {Number} precision - Non Zero positive value; 0 means return as such
  * @returns {Number} eligible reward points
  */
-export const calculateRewards = (price, precision = 2) => {
+const calculateRewards = (price, precision = 2) => {
   const amount = Math.ceil(price);
   let rewards = 0;
 
