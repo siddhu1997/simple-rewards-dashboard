@@ -3,7 +3,7 @@ import { CONSTANTS } from "../utils/Config";
 
 const { ROWS_PER_PAGE } = CONSTANTS;
 
-const Index = ({ columns, data }) => {
+const Table = ({ columns, data }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // Calculate total pages
@@ -27,6 +27,11 @@ const Index = ({ columns, data }) => {
     }
   };
 
+  /**
+   * Columns for each table must be defined in utils/Config.js.
+   * They must be array of objects with "name" and "value" as two properties.
+   * "name" will be the column name & "value" will be property name by which the formated data will be accessed.
+   */
   return (
     <div className="w-full m-auto p-10">
       <div className="overflow-x-auto">
@@ -85,4 +90,4 @@ const Index = ({ columns, data }) => {
   );
 };
 
-export default Index;
+export default Table;

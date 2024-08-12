@@ -70,5 +70,77 @@
     "name": "Alice Johnson",
     "timestamp": "2024-05-04",
     "price": 152
+  },
+  {
+    "customerId": "1000",
+    "name": "John Doe",
+    "timestamp": "2024-07-02",
+    "price": 150
+  },
+  {
+    "customerId": "1001",
+    "name": "Jane Smith",
+    "timestamp": "2024-07-03",
+    "price": 100
+  },
+  {
+    "customerId": "1002",
+    "name": "Emma Watson",
+    "timestamp": "2024-07-04",
+    "price": 100
+  },
+  {
+    "customerId": "1003",
+    "name": "Alice Johnson",
+    "timestamp": "2024-07-05",
+    "price": 160
+  },
+  {
+    "customerId": "1000",
+    "name": "John Doe",
+    "timestamp": "2024-06-03",
+    "price": 67
+  },
+  {
+    "customerId": "1001",
+    "name": "Jane Smith",
+    "timestamp": "2024-06-02",
+    "price": 70
+  },
+  {
+    "customerId": "1002",
+    "name": "Emma Watson",
+    "timestamp": "2024-06-10",
+    "price": 120
+  },
+  {
+    "customerId": "1003",
+    "name": "Alice Johnson",
+    "timestamp": "2024-06-12",
+    "price": 119
+  },
+  {
+    "customerId": "1000",
+    "name": "John Doe",
+    "timestamp": "2024-05-29",
+    "price": 44
+  },
+  {
+    "customerId": "1001",
+    "name": "Jane Smith",
+    "timestamp": "2024-05-03",
+    "price": 200
+  },
+  {
+    "customerId": "1002",
+    "name": "Emma Watson",
+    "timestamp": "2024-05-13",
+    "price": 101
+  },
+  {
+    "customerId": "1003",
+    "name": "Alice Johnson",
+    "timestamp": "2024-05-12",
+    "price": 199.50
   }
 ]

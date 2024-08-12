@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import Shimmer from "../Shimmer";
 
 /**
- * Higer Order Component for different Reward Tables
+ * Higer Order Component for different Reward Tables.
+ *
+ * All 3 tables in our consideration does same set of actions in sequence - Show Shimmer, fetch, serialize and show data.
  */
 const getRewardTable =
   (TargetTable, { fetchData, serializer, columns }) =>
@@ -15,9 +17,9 @@ const getRewardTable =
       const getData = async () => {
         const apiData = await fetchData();
         setData(serializer(apiData));
+        setIsLoading(false);
       };
       getData();
-      setIsLoading(false);
     }, []);
 
     if (isLoading) {

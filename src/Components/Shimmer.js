@@ -1,3 +1,7 @@
+/**
+ * This is pulsating skeletal loading table configurable by rows and columns.
+ * Good UX as users will have a feint idea on what to epect or how data will look like in UI.
+ */
 const Index = ({ rows = 5, columns = 3 }) => {
   return (
     <div className="flex items-center justify-center my-10 overflow-x-auto">

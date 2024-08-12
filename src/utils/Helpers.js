@@ -21,6 +21,7 @@ const serializeUserMonthlyRewardsRowData = ({
     name,
     month: date.format("MMMM"), // full name of th e month
     year: date.format("YYYY"),
+    price: `$${price.toFixed(2)}`,
     rewards: calculateRewards(price),
   };
 };

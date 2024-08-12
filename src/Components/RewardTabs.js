@@ -39,6 +39,12 @@ const RewardTabs = () => {
     setActiveTab(tabIndex);
   };
 
+  /**
+   * We currently have 3 tabs where we show data in tabular format. They are:
+   * 1. User Monthly Rewards  - Where we show data segregatted into months and each month has its own table.
+   * 2. Total Rewards - Data of total rewards accumulated my each customer.
+   * 3. Transactions -  This tab contains data od all transactions till date.
+   */
   return (
     <div className="w-full my-10">
       <div className="flex border-b border-gray-200">

@@ -1,5 +1,9 @@
 import Table from "./Table";
 
+/**
+ * This table get its own component rather than generic "Table" component as all tables will be dynamic.
+ * This component will render mumtiple tables based on data. For reference see: <root>/public/images/UserMonthlyRewards.png
+ */
 const UserMonthlyRewards = ({ columns, data }) => {
   return (
     <div className="w-full flex flex-col justify-center">

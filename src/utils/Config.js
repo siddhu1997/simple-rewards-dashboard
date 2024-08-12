@@ -1,11 +1,12 @@
 export const CONSTANTS = {
   LOG_LEVEL: process.env.REACT_APP_APP_ENV === "production" ? "warn" : "log",
-  ROWS_PER_PAGE: 5,
+  ROWS_PER_PAGE: 20,
   USER_MONTHLY_REWARDS_COLUMNS: [
     { name: "Customer ID", value: "customerId" },
     { name: "Name", value: "name" },
     { name: "Month", value: "month" },
     { name: "Year", value: "year" },
+    { name: "Amount", value: "price" },
     { name: "Rewards", value: "rewards" },
   ],
   TOTAL_REWARDS_COLUMNS: [

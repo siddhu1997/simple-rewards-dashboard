@@ -23,6 +23,7 @@ describe("Helpers Tests", () => {
             name: "Jon Doe",
             month: "July",
             year: "2024",
+            price: "$120.00",
             rewards: 90,
           },
         ],
