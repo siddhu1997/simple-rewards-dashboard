@@ -18,7 +18,12 @@ const getRewardTable =
       return <Shimmer columns={columns.length} />;
     }
 
-    if (!isLoading && typeof memoizedData !== 'object') {
+    if (
+      !isLoading &&
+      (!memoizedData ||
+        (Array.isArray(memoizedData) && !memoizedData.length) ||
+        !Object.keys(memoizedData).length)
+    ) {
       return (
         <div className="w-full flex items-center justify-center my-10 text-2xl">
           <h1>No data available!</h1>

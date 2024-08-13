@@ -8,7 +8,10 @@ import "@testing-library/jest-dom";
 
 describe("UserMonthlyRewards Tests", () => {
   test("Displays correct number of tables", () => {
-    const data = userMonthlyRewardsFormatter(mockData, CONSTANTS.REWARDS_START_DATE);
+    const data = userMonthlyRewardsFormatter(
+      mockData,
+      CONSTANTS.REWARDS_START_DATE,
+    );
     render(
       <UserMonthlyRewardsTable
         data={data}

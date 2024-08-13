@@ -3,19 +3,18 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 #### Ask
-A retailer ofers a rewards program to its customers, awarding points based on each recorded purchase.
+A retailer offers a rewards program to its customers, awarding points based on each recorded purchase.
 
 A customer receives 2 points for every dollar spent over $100 in each transaction, plus 1 point for every dollar spent between $50 and $100 in each transaction.
 
 (e.g. a $120 purchase = 2 x $20 + 1 x $50 = 90 points).
 
-### UI
-Note:
-1. No external CSS other than Tailwind is used
-2. Table shows 5 rows per page and pagination is enabled.
 
 #### User Monthly Rewards Table
 !["User Monthly Rewards Table"](public/images/UserMonthlyRewards.png)
+
+#### Data unavaibale
+!["Data Unavailable](public/images/DataUnavailable.png)
 
 #### Shimmer loading view while data is fetched
 !["Shimmer Image](public/images/ShimmerLoadingExample.png)
@@ -26,7 +25,7 @@ Note:
 #### Transactions table
 !["Transactions Table](public/images/TransactionsTable.png)
 
-### Tests Status
+#### Tests Status
 !["Tests Status](public/images/Tests.png)
 
 ## Available Scripts

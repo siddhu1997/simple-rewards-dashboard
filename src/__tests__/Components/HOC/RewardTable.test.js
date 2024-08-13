@@ -14,7 +14,7 @@ describe("RewardsTable HOC Tests", () => {
       columns: [],
     });
 
-    render(<WrappedTable data={[]}/>);
+    render(<WrappedTable data={[]} />);
 
     const label = screen.findByLabelText("No data available!");
     expect(label).toBeTruthy();
