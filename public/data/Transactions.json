@@ -294,5 +294,133 @@
     "timestamp": "2024-05-04",
     "price": 152,
     "productPurchased": "Food Vocuher - Elite"
+  },
+  {
+    "transactionId": "t_1271",
+    "customerId": "1000",
+    "name": "John Doe",
+    "timestamp": "2023-12-01",
+    "price": 44,
+    "productPurchased": "Food Voucher - Elite"
+  },
+  {
+    "transactionId": "t_1272",
+    "customerId": "1001",
+    "name": "Jane Smith",
+    "timestamp": "2023-12-02",
+    "price": 51,
+    "productPurchased": "Flipkart Voucher"
+  },
+  {
+    "transactionId": "t_1273",
+    "customerId": "1002",
+    "name": "Emma Watson",
+    "timestamp": "2023-12-03",
+    "price": 100,
+    "productPurchased": "Uber Voucher"
+  },
+  {
+    "transactionId": "t_1274",
+    "customerId": "1003",
+    "name": "Alice Johnson",
+    "timestamp": "2023-12-04",
+    "price": 152,
+    "productPurchased": "Amazon Voucher"
+  },
+  {
+    "transactionId": "t_1275",
+    "customerId": "1000",
+    "name": "John Doe",
+    "timestamp": "2024-01-01",
+    "price": 44,
+    "productPurchased": "Food Voucher - Elite"
+  },
+  {
+    "transactionId": "t_1276",
+    "customerId": "1001",
+    "name": "Jane Smith",
+    "timestamp": "2024-01-02",
+    "price": 51,
+    "productPurchased": "BookMyShow Voucher"
+  },
+  {
+    "transactionId": "t_1277",
+    "customerId": "1002",
+    "name": "Emma Watson",
+    "timestamp": "2024-01-03",
+    "price": 100,
+    "productPurchased": "JBL Voucher"
+  },
+  {
+    "transactionId": "t_1278",
+    "customerId": "1003",
+    "name": "Alice Johnson",
+    "timestamp": "2024-01-04",
+    "price": 152,
+    "productPurchased": "Food Voucher - Mad Max"
+  },
+  {
+    "transactionId": "t_1279",
+    "customerId": "1000",
+    "name": "John Doe",
+    "timestamp": "2024-02-01",
+    "price": 44,
+    "productPurchased": "Food Voucher - Pro"
+  },
+  {
+    "transactionId": "t_1280",
+    "customerId": "1001",
+    "name": "Jane Smith",
+    "timestamp": "2024-02-02",
+    "price": 51,
+    "productPurchased": "Flipkart Voucher"
+  },
+  {
+    "transactionId": "t_1281",
+    "customerId": "1002",
+    "name": "Emma Watson",
+    "timestamp": "2024-02-03",
+    "price": 100,
+    "productPurchased": "Uber Voucher"
+  },
+  {
+    "transactionId": "t_1282",
+    "customerId": "1003",
+    "name": "Alice Johnson",
+    "timestamp": "2024-02-04",
+    "price": 152,
+    "productPurchased": "Amazon Voucher"
+  },
+  {
+    "transactionId": "t_1283",
+    "customerId": "1000",
+    "name": "John Doe",
+    "timestamp": "2024-03-01",
+    "price": 44,
+    "productPurchased": "Food Voucher - Elite"
+  },
+  {
+    "transactionId": "t_1284",
+    "customerId": "1001",
+    "name": "Jane Smith",
+    "timestamp": "2024-03-02",
+    "price": 51,
+    "productPurchased": "Amazon Voucher"
+  },
+  {
+    "transactionId": "t_1285",
+    "customerId": "1002",
+    "name": "Emma Watson",
+    "timestamp": "2024-03-03",
+    "price": 100,
+    "productPurchased": "JBL Voucher"
+  },
+  {
+    "transactionId": "t_1286",
+    "customerId": "1003",
+    "name": "Alice Johnson",
+    "timestamp": "2024-03-04",
+    "price": 152,
+    "productPurchased": "Uber Voucher"
   }
 ]

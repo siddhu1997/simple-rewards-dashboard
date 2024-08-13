@@ -1,4 +1,9 @@
 import dayjs from "dayjs";
+import isBetween from "dayjs/plugin/isBetween";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+
+dayjs.extend(isBetween);
+dayjs.extend(advancedFormat);
 
 /**
  * Helper function to serialize UserMonthlyRewards row data
@@ -14,17 +19,13 @@ const serializeUserMonthlyRewardsRowData = ({
   name,
   timestamp,
   price,
-}) => {
-  const date = dayjs(timestamp);
-  return {
-    customerId,
-    name,
-    month: date.format("MMMM"), // full name of th e month
-    year: date.format("YYYY"),
-    price: `$${price.toFixed(2)}`,
-    rewards: calculateRewards(price),
-  };
-};
+}) => ({
+  customerId,
+  name,
+  purchaseDate: dayjs(timestamp).format("DD/MM/YYYY"),
+  price: `$${price.toFixed(2)}`,
+  rewards: calculateRewards(price),
+});
 
 /**
  * Helper function to format API data for UserMonthly Rewards Table
@@ -36,9 +37,13 @@ const serializeUserMonthlyRewardsRowData = ({
  * @param {Number} data.price - purchase amount
  * @returns {Object} - A map with months as keys and array of serialsed elements as values.
  */
-export const userMonthlyRewardsFormatter = (data = []) => {
-  return data.reduce((acc, curr) => {
-    const month = dayjs(curr.timestamp).format("MMMM");
+export const userMonthlyRewardsFormatter = (data = [], startDate) => {
+  let formattedData = data;
+  if (startDate) {
+    formattedData = filterDatesInRange(formattedData, startDate);
+  }
+  return formattedData.reduce((acc, curr) => {
+    const month = dayjs(curr.timestamp).format("MMMM YYYY");
     const serializedData = serializeUserMonthlyRewardsRowData(curr);
     if (acc[month]) {
       acc[month].push(serializedData);
@@ -52,11 +57,10 @@ export const userMonthlyRewardsFormatter = (data = []) => {
 /**
  * Helper function to calculate eligible reward points
  * @param {Number} price - price to consider for reward points
- * @param {Number} precision - Non Zero positive value; 0 means return as such
  * @returns {Number} eligible reward points
  */
-const calculateRewards = (price, precision = 2) => {
-  const amount = Math.ceil(price);
+const calculateRewards = (price) => {
+  const amount = Math.floor(price);
   let rewards = 0;
 
   if (amount > 100) {
@@ -64,10 +68,6 @@ const calculateRewards = (price, precision = 2) => {
     rewards += 50; // 1 point for every dollar between $50 and $100
   } else if (amount > 50) {
     rewards += (amount - 50) * 1; // 1 point for every dollar between $50 and $100
-  }
-
-  if (precision) {
-    rewards.toFixed(precision);
   }
 
   return rewards;
@@ -128,3 +128,30 @@ export const transactionsFormatter = (data = []) => {
     }),
   );
 };
+
+/**
+ * Helper method to filter date within 3 month period from reference date.
+ *
+ * @param {Array<Object>} array - Array of transactions
+ * @param {String} array.timestamp - ts of purchase
+ * @param {String} referenceDate - Ref start date in YYYY-MM-DD format
+ * @returns {Array<Object>}
+ */
+export const filterDatesInRange = (array, referenceDate) => {
+  const startDate = dayjs(referenceDate);
+  const endDate = startDate.add(3, "month");
+
+  return array.filter((item) =>
+    dayjs(item.timestamp).isBetween(startDate, endDate, "day", "[)"),
+  );
+};
+
+/**
+ * Helper comparator function to sort transactions data in ascending order
+ *
+ * @param {Object} rec1
+ * @param {Object} rec2
+ * @returns {Boolean}
+ */
+export const transactionsDataComparator = (rec1, rec2) =>
+  dayjs(rec1.timestamp).diff(dayjs(rec2.timestamp));

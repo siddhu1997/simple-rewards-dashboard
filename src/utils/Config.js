@@ -4,8 +4,7 @@ export const CONSTANTS = {
   USER_MONTHLY_REWARDS_COLUMNS: [
     { name: "Customer ID", value: "customerId" },
     { name: "Name", value: "name" },
-    { name: "Month", value: "month" },
-    { name: "Year", value: "year" },
+    { name: "Purchase Date", value: "purchaseDate" },
     { name: "Amount", value: "price" },
     { name: "Rewards", value: "rewards" },
   ],

@@ -1,43 +1,51 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CONSTANTS } from "../utils/Config";
 import getRewardTable from "./HOC/RewardTable";
+import withDatePicker from "./HOC/WithDatePicker";
 import UserMonthlyRewards from "./UserMonthlyRewards";
 import Table from "../Components/Table";
-import {
-  getUserMonthlyRewardsAPI,
-  getTransactionsAPI,
-  getTotalRewardsAPI,
-} from "../Services";
+import { getTransactionsAPI } from "../Services";
 import {
   userMonthlyRewardsFormatter,
   transactionsFormatter,
   totalRewardsFormatter,
 } from "../utils/Helpers";
 
-const WrappedUserMonthlyRewards = getRewardTable(UserMonthlyRewards, {
-  columns: CONSTANTS.USER_MONTHLY_REWARDS_COLUMNS,
-  fetchData: getUserMonthlyRewardsAPI,
-  serializer: userMonthlyRewardsFormatter,
-});
+const WrappedUserMonthlyRewards = withDatePicker(
+  getRewardTable(UserMonthlyRewards, {
+    columns: CONSTANTS.USER_MONTHLY_REWARDS_COLUMNS,
+    serializer: userMonthlyRewardsFormatter,
+  }),
+);
 
 const WrappedTransactions = getRewardTable(Table, {
   columns: CONSTANTS.TRANSACTIONS_COLUMNS,
-  fetchData: getTransactionsAPI,
   serializer: transactionsFormatter,
 });
 
 const WrappedTotalRewards = getRewardTable(Table, {
   columns: CONSTANTS.TOTAL_REWARDS_COLUMNS,
-  fetchData: getTotalRewardsAPI,
   serializer: totalRewardsFormatter,
 });
 
 const RewardTabs = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState([]);
 
   const handleTabClick = (tabIndex) => {
     setActiveTab(tabIndex);
   };
+
+  useEffect(() => {
+    setIsLoading(true);
+    const getData = async () => {
+      const apiData = await getTransactionsAPI();
+      setData(apiData);
+      setIsLoading(false);
+    };
+    getData();
+  }, []);
 
   /**
    * We currently have 3 tabs where we show data in tabular format. They are:
@@ -80,9 +88,15 @@ const RewardTabs = () => {
         </button>
       </div>
       <div className="p-4">
-        {activeTab === 0 && <WrappedUserMonthlyRewards />}
-        {activeTab === 1 && <WrappedTotalRewards />}
-        {activeTab === 2 && <WrappedTransactions />}
+        {activeTab === 0 && (
+          <WrappedUserMonthlyRewards data={data} isLoading={isLoading} />
+        )}
+        {activeTab === 1 && (
+          <WrappedTotalRewards data={data} isLoading={isLoading} />
+        )}
+        {activeTab === 2 && (
+          <WrappedTransactions data={data} isLoading={isLoading} />
+        )}
       </div>
     </div>
   );
