@@ -1,8 +1,6 @@
-import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { FaCircleInfo } from "react-icons/fa6";
 import "react-datepicker/dist/react-datepicker.module.css";
-import { CONSTANTS } from "../../utils/Config";
 
 const ToolTip = () => {
   return (
@@ -15,26 +13,29 @@ const ToolTip = () => {
   );
 };
 
-const withDatePicker = (TargetComponent) => (props) => {
-  const [startDate, setStartDate] = useState(CONSTANTS.REWARDS_START_DATE);
-  return (
-    <div className="flex flex-col justify-end content-end items-center">
-      <div className="flex justify-end items-center">
-        <label className="font-semibold">Showing 3 month records from: </label>
-        <div className="flex items-center m-2">
-          <DatePicker
-            className="font-extrabold border border-solid rounded-lg px-2 w-32"
-            selected={startDate}
-            dateFormat="YYYY-MM-dd"
-            onChange={(date) => setStartDate(date)}
-            withPortal
-          />
-          <ToolTip />
+const withDatePicker =
+  (TargetComponent) =>
+  ({ startDate, setStartDate, ...props }) => {
+    return (
+      <div className="flex flex-col justify-end content-end items-center">
+        <div className="flex justify-end items-center">
+          <label className="font-semibold">
+            Showing 3 month records from:{" "}
+          </label>
+          <div className="flex items-center m-2">
+            <DatePicker
+              className="font-extrabold border border-solid rounded-lg px-2 w-32"
+              selected={startDate}
+              dateFormat="YYYY-MM-dd"
+              onChange={(date) => setStartDate(date)}
+              withPortal
+            />
+            <ToolTip />
+          </div>
         </div>
+        <TargetComponent startDate={startDate} {...props} />
       </div>
-      <TargetComponent startDate={startDate} {...props} />
-    </div>
-  );
-};
+    );
+  };
 
 export default withDatePicker;

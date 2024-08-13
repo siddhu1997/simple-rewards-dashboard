@@ -31,6 +31,7 @@ const WrappedTotalRewards = getRewardTable(Table, {
 const RewardTabs = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [startDate, setStartDate] = useState(CONSTANTS.REWARDS_START_DATE);
   const [data, setData] = useState([]);
 
   const handleTabClick = (tabIndex) => {
@@ -89,7 +90,12 @@ const RewardTabs = () => {
       </div>
       <div className="p-4">
         {activeTab === 0 && (
-          <WrappedUserMonthlyRewards data={data} isLoading={isLoading} />
+          <WrappedUserMonthlyRewards
+            data={data}
+            isLoading={isLoading}
+            startDate={startDate}
+            setStartDate={setStartDate}
+          />
         )}
         {activeTab === 1 && (
           <WrappedTotalRewards data={data} isLoading={isLoading} />
