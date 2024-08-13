@@ -17,12 +17,11 @@ describe("Helpers Tests", () => {
         },
       ];
       const expectedResult = {
-        July: [
+        "July 2024": [
           {
             customerId: "123",
             name: "Jon Doe",
-            month: "July",
-            year: "2024",
+            purchaseDate: "01/07/2024",
             price: "$120.00",
             rewards: 90,
           },
@@ -52,7 +51,7 @@ describe("Helpers Tests", () => {
         {
           name: "John Doe",
           customerId: "123",
-          rewards: "180.00",
+          rewards: 180,
         },
       ];
       expect(totalRewardsFormatter(input)).toEqual(expectedResult);

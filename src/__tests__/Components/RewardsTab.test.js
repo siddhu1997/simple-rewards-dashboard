@@ -1,14 +1,14 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import RewardTabs from "../../Components/RewardTabs";
-import userMonthlyRewardsData from "../../../public/data/UserMonthlyRewards.json";
+import transactionsData from "../../../public/data/Transactions.json";
 import "@testing-library/jest-dom";
 
 describe("RewardTabs Tests", () => {
   beforeEach(() => {
     jest.spyOn(global, "fetch").mockImplementation(() =>
       Promise.resolve({
-        json: () => Promise.resolve(userMonthlyRewardsData),
+        json: () => Promise.resolve(transactionsData),
       }),
     );
   });

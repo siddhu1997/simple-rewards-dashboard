@@ -85,7 +85,7 @@ const calculateRewards = (price) => {
 export const totalRewardsFormatter = (data = []) => {
   const calculatedRewardsData = data.reduce(
     (acc, { name, price, customerId }) => {
-      const reward = calculateRewards(price, 0);
+      const reward = calculateRewards(price);
       if (acc[name]) {
         acc[name].rewards += reward;
       } else {
@@ -102,7 +102,7 @@ export const totalRewardsFormatter = (data = []) => {
 
   return Object.keys(calculatedRewardsData).map((customer) => ({
     ...calculatedRewardsData[customer],
-    rewards: calculatedRewardsData[customer].rewards.toFixed(2),
+    rewards: calculatedRewardsData[customer].rewards,
   }));
 };
 
