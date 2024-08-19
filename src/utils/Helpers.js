@@ -155,3 +155,13 @@ export const filterDatesInRange = (array, referenceDate) => {
  */
 export const transactionsDataComparator = (rec1, rec2) =>
   dayjs(rec1.timestamp).diff(dayjs(rec2.timestamp));
+
+export const getThemeClasses = (isDarkMode, otherClasses, invert = false) => {
+  let base = otherClasses;
+  if (invert) {
+    base += ` ${isDarkMode ? "bg-black text-white" : "bg-white text-black"}`;
+  } else {
+    base += ` ${isDarkMode ? "bg-white text-black" : "bg-black text-white"}`;
+  }
+  return base;
+};

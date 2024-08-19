@@ -1,6 +1,8 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
 import PropTypes from "prop-types";
 import Shimmer from "../Shimmer";
+import { DarkThemeContext } from "../../Contexts/DarkThemeContext";
+import { getThemeClasses } from "../../utils/Helpers";
 
 /**
  * Higer Order Component for different Reward Tables.
@@ -10,6 +12,8 @@ import Shimmer from "../Shimmer";
 const getRewardTable =
   (TargetTable, { serializer, columns }) =>
   ({ startDate, data, isLoading }) => {
+    const { darkMode } = useContext(DarkThemeContext);
+
     const memoizedData = useMemo(
       () => serializer(data, startDate),
       [startDate, data],
@@ -26,14 +30,24 @@ const getRewardTable =
         !Object.keys(memoizedData).length)
     ) {
       return (
-        <div className="w-full flex items-center justify-center my-10 text-2xl">
+        <div
+          className={getThemeClasses(
+            darkMode,
+            "w-full flex items-center justify-center my-10 text-2xl",
+          )}
+        >
           <h1>No data available!</h1>
         </div>
       );
     }
 
     return (
-      <div className="w-full flex flex-col justify-center">
+      <div
+        className={getThemeClasses(
+          darkMode,
+          "w-full flex flex-col justify-center",
+        )}
+      >
         <TargetTable columns={columns} data={memoizedData} />
       </div>
     );

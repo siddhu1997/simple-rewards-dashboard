@@ -1,9 +1,12 @@
 import Dashboard from "./Pages/Dashboard";
+import { DarkThemeProvider } from "./Contexts/DarkThemeContext";
 
 function App() {
   return (
     <div className="App">
-      <Dashboard />
+      <DarkThemeProvider>
+        <Dashboard />
+      </DarkThemeProvider>
     </div>
   );
 }

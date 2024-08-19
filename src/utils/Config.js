@@ -22,4 +22,5 @@ export const CONSTANTS = {
     { name: "Price", value: "price" },
     { name: "Rewards", value: "rewards" },
   ],
+  THEME_SWITCH_ICON_SIZE: 28,
 };

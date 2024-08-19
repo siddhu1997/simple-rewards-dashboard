@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import PropTypes from "prop-types";
+import { DarkThemeContext } from "../Contexts/DarkThemeContext";
 import { CONSTANTS } from "../utils/Config";
+import { getThemeClasses } from "../utils/Helpers";
 
 const { ROWS_PER_PAGE } = CONSTANTS;
 
 const Table = ({ columns, data }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const { darkMode } = useContext(DarkThemeContext);
 
   // Calculate total pages
   const totalPages = Math.ceil(data.length / ROWS_PER_PAGE);
@@ -34,15 +37,19 @@ const Table = ({ columns, data }) => {
    * "name" will be the column name & "value" will be property name by which the formated data will be accessed.
    */
   return (
-    <div className="w-full m-auto p-10">
+    <div className={getThemeClasses(darkMode, "w-full m-auto p-10")}>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white">
+        <table className={getThemeClasses(darkMode, "min-w-full")}>
           <thead>
             <tr>
               {columns.map((column, index) => (
                 <th
                   key={index}
-                  className="py-2 px-4 bg-gray-200 border-b border-gray-300 text-left capitalize"
+                  className={getThemeClasses(
+                    darkMode,
+                    "py-2 px-4 border-b text-left capitalize",
+                    true,
+                  )}
                 >
                   {column.name}
                 </th>
@@ -69,7 +76,10 @@ const Table = ({ columns, data }) => {
       {data.length > ROWS_PER_PAGE && (
         <div className="flex justify-between items-center p-4">
           <button
-            className="px-4 py-2 bg-gray-200 text-gray-600 rounded disabled:opacity-50"
+            className={getThemeClasses(
+              darkMode,
+              "px-4 py-2 rounded disabled:opacity-50",
+            )}
             onClick={handlePreviousPage}
             disabled={currentPage === 1}
           >
