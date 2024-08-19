@@ -78,7 +78,8 @@ const Table = ({ columns, data }) => {
           <button
             className={getThemeClasses(
               darkMode,
-              "px-4 py-2 rounded disabled:opacity-50",
+              "px-4 py-2 rounded disabled:opacity-0",
+              true
             )}
             onClick={handlePreviousPage}
             disabled={currentPage === 1}
@@ -89,7 +90,7 @@ const Table = ({ columns, data }) => {
             Page {currentPage} of {totalPages}
           </span>
           <button
-            className="px-4 py-2 bg-gray-200 text-gray-600 rounded disabled:opacity-50"
+            className={getThemeClasses(darkMode, "px-4 py-2 rounded disabled:opacity-0", true)}
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
           >
