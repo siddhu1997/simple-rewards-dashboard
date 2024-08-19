@@ -23,6 +23,8 @@ A customer receives 2 points for every dollar spent over $100 in each transactio
 !["Total Rewards Table](public/images/TotalRewards.png)
 
 #### Transactions table
+NOTE: Window has been zoomed out to show table and pagination.
+
 !["Transactions Table](public/images/TransactionsTable.png)
 
 #### Tests Status
