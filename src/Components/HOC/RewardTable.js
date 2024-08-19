@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import PropTypes from "prop-types";
 import Shimmer from "../Shimmer";
 
 /**
@@ -37,5 +38,18 @@ const getRewardTable =
       </div>
     );
   };
+
+getRewardTable.propTypes = {
+  serializer: PropTypes.func.isRequired,
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      value: PropTypes.string,
+    }),
+  ).isRequired,
+  startDate: PropTypes.string,
+  data: PropTypes.array,
+  isLoading: PropTypes.bool,
+};
 
 export default getRewardTable;

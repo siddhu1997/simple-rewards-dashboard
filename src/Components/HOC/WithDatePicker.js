@@ -1,5 +1,6 @@
-import DatePicker from "react-datepicker";
+import PropTypes from "prop-types";
 import { FaCircleInfo } from "react-icons/fa6";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
 
 const ToolTip = () => {
@@ -37,5 +38,10 @@ const withDatePicker =
       </div>
     );
   };
+
+withDatePicker.propTypes = {
+  startDate: PropTypes.string,
+  setStartDate: PropTypes.func,
+};
 
 export default withDatePicker;

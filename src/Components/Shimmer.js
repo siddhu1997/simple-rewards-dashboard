@@ -1,8 +1,10 @@
+import PropTypes from "prop-types";
+
 /**
  * This is pulsating skeletal loading table configurable by rows and columns.
  * Good UX as users will have a feint idea on what to epect or how data will look like in UI.
  */
-const Index = ({ rows = 5, columns = 3 }) => {
+const Shimmer = ({ rows = 5, columns = 3 }) => {
   return (
     <div className="flex items-center justify-center my-10 overflow-x-auto">
       <table className="w-10/12 bg-white">
@@ -37,4 +39,9 @@ const Index = ({ rows = 5, columns = 3 }) => {
   );
 };
 
-export default Index;
+Shimmer.propTypes = {
+  rows: PropTypes.number,
+  columns: PropTypes.number,
+};
+
+export default Shimmer;

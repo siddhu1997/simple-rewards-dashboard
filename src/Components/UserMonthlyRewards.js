@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Table from "./Table";
 
 /**
@@ -19,6 +20,16 @@ const UserMonthlyRewards = ({ columns, data }) => {
       })}
     </div>
   );
+};
+
+UserMonthlyRewards.propTypes = {
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      value: PropTypes.string,
+    }),
+  ),
+  data: PropTypes.object,
 };
 
 export default UserMonthlyRewards;

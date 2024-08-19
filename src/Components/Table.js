@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { CONSTANTS } from "../utils/Config";
 
 const { ROWS_PER_PAGE } = CONSTANTS;
@@ -88,6 +89,16 @@ const Table = ({ columns, data }) => {
       )}
     </div>
   );
+};
+
+Table.propTypes = {
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      value: PropTypes.string,
+    }),
+  ),
+  data: PropTypes.array,
 };
 
 export default Table;
